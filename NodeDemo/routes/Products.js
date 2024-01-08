@@ -16,17 +16,16 @@ router.get('/', async function (req, res, next) {
 
 router.post('/addproducts', async function (req, res, next) {
   try {
-    // Validate request body
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      responseData.responseReturn(res, 400, false, errors.array().map(error => error.msg));
-      return;
-    }
+
+   
 
     const newProduct = await productController.createProduct(req.body);
     responseData.responseReturn(res, 200, true, newProduct);
   } catch (error) {
-    responseData.responseReturn(res, 500, false, 'Internal Server Error');
+    console.log(error);
+    return res.json({
+      status: "faslse"
+    })
   }
 });
 

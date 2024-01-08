@@ -23,8 +23,8 @@ module.exports ={
   },
 
   // Create a new product
-  createProduct: function (product) {
-    return new Product(product).save();
+  createProduct: function (Product) {
+    return new SchemaProduct(Product).save();
   },
 
     // Update product information
